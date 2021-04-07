@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Test</title>
+
+    <style>
+        body {
+
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-attachment: fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+
+        label, b {
+            color: white;
+        }
+    </style>
+</head>
+<body th:style="'background-image: url(' + @{/images/img2.jpg} + ');'">
+
+<form th:method="PATCH" th:action="@{/poll}" th:object="${item}">
+
+    <fieldset> <legend><b>Имеет ли Ваша система налици 2-х проверок инциндента ИБ?</b></legend>
+
+        <label><input type="radio" name="question"  th:field="*{answer}" th:value="*{options[0].getText()}" th:utext="*{options[0].text}" required/></label>
+        <label><input type="radio" name="question"  th:field="*{answer}" th:value="*{options[1].getText()}" th:utext="*{options[1].text}"/></label>
+        <label><input type="radio" name="question"  th:field="*{answer}" th:value="*{options[2].getText()}" th:utext="*{options[2].text}"/></label>
+
+        <input type="hidden" name="number"  th:field="*{number}" th:value="*{number}"/>
+
+        <input type="hidden" name="options"  th:field="*{options[0].text}" th:value="*{options[0].text}"/>
+        <input type="hidden" name="options"  th:field="*{options[1].text}" th:value="*{options[1].text}"/>
+        <input type="hidden" name="options"  th:field="*{options[2].text}" th:value="*{options[2].text}"/>
+
+        <input type="hidden" name="options"  th:field="*{options[0].value}" th:value="*{options[0].getValue()}"/>
+        <input type="hidden" name="options"  th:field="*{options[1].value}" th:value="*{options[1].getValue()}"/>
+        <input type="hidden" name="options"  th:field="*{options[2].value}" th:value="*{options[2].getValue()}"/>
+
+    </fieldset>
+
+    <p><input type="submit" value="Отправить ответ"></p>
+</form>
+
+<br><br>
+
+</body>
+</html>

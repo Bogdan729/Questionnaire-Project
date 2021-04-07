@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Present data</title>
+
+    <style>
+        body {
+
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-attachment: fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+
+        p {
+            color: white;
+            font-size : 20px;
+            font-weight : bold;
+        }
+    </style>
+</head>
+<body th:style="'background-image: url(' + @{/images/img2.jpg} + ');'">
+    <p th:utext="${item}"/>
+</body>
+
+
+</html>

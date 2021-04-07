@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Result</title>
+
+    <style>
+        body {
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-attachment: fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+
+        textarea[name=details] {
+            resize: none;
+        }
+
+        div.recommended {
+            position: absolute;
+            left: 60px; /* Расстояние от левого края */
+            top: 200px;
+        }
+
+        div.necessary {
+            position: absolute;
+            right: 150px; /* Расстояние от левого края */
+            top: 200px;
+        }
+
+        div.result {
+            pwidth: 1000px;
+            position: absolute;
+            left: 50%;
+            margin-left: -350px;
+        }
+
+        p.requirement {
+            font-size : 30px;
+            font-weight : bold;
+        }
+
+
+        p.result {
+            font-size : 50px;
+            font-weight : bold;
+            color: white;
+        }
+    </style>
+</head>
+<body th:style="'background-image: url(' + @{/images/img2.jpg} + ');'">
+
+<div class="result">
+    <p class="result" th:text="'Ваш результат: ' + ${result} + '/9 ' + 'баллов'"/>
+<!--    <p class="result">Результат</p>-->
+</div>
+
+<div class="recommended">
+    <p class="requirement">Рекомендательные требования</p>
+    <textarea name="details" cols="90" rows="5"></textarea>
+</div>
+
+<div class="necessary">
+    <p class="requirement">Настоятельно необходимые требования</p>
+    <textarea name="details" cols="90" rows="5"></textarea>
+</div>
+
+</textarea>
+
+</body>
+</html>

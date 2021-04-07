@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>General Page</title>
+
+    <style>
+        body {
+
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-attachment: fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+
+        p {
+            color: white;
+            font-size : 20px;
+            font-weight : bold;
+        }
+    </style>
+</head>
+
+<body th:style="'background-image: url(' + @{/images/img2.jpg} + ');'">
+
+<p>Начните проверку уровня Вашей системы управления инциндентами ИБ</p>
+
+<br>
+
+<form th:action="@{/poll/questions/1}">
+    <button type="submit">Начать</button>
+</form>
+
+</body>
+</html>

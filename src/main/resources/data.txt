@@ -1,0 +1,31 @@
+1. Имеет 1 проверку Number question: Item{number=1, options=[Options{text='Имеет 1 проверку', value=1}, Options{text='Имеет 2 проверки', value=2}, Options{text='Повторных проверок не имеет', value=3}]}
+2. Вопрос №2  )2( Number question: Item{number=2, options=[Options{text='Вопрос №1 )2(', value=4}, Options{text='Вопрос №2  )2(', value=5}, Options{text='Вопрос №3  )2(', value=6}]}
+1. Имеет 2 проверки Number question: Item{number=1, options=[Options{text='Имеет 1 проверку', value=1}, Options{text='Имеет 2 проверки', value=2}, Options{text='Повторных проверок не имеет', value=3}]}
+2. Вопрос №2  )2( Number question: Item{number=2, options=[Options{text='Вопрос №1 )2(', value=4}, Options{text='Вопрос №2  )2(', value=5}, Options{text='Вопрос №3  )2(', value=6}]}
+1. Имеет 1 проверку Number question: Item{number=1, options=[Options{text='Имеет 1 проверку', value=1}, Options{text='Имеет 2 проверки', value=2}, Options{text='Повторных проверок не имеет', value=3}]}
+2. Вопрос №2  )2( Number question: Item{number=2, options=[Options{text='Вопрос №1 )2(', value=4}, Options{text='Вопрос №2  )2(', value=5}, Options{text='Вопрос №3  )2(', value=6}]}
+3. Имеет 1 проверку Number question: Item{number=1, options=[Options{text='Имеет 1 проверку', value=1}, Options{text='Имеет 2 проверки', value=2}, Options{text='Повторных проверок не имеет', value=3}]}
+4. Вопрос №2  )2( Number question: Item{number=2, options=[Options{text='Вопрос №1 )2(', value=4}, Options{text='Вопрос №2  )2(', value=5}, Options{text='Вопрос №3  )2(', value=6}]}
+1. Имеет 1 проверку Number question: Item{number=1, options=[Options{text='Имеет 1 проверку', value=1}, Options{text='Имеет 2 проверки', value=2}, Options{text='Повторных проверок не имеет', value=3}]}
+2. Вопрос №1 )2( Number question: Item{number=2, options=[Options{text='Вопрос №1 )2(', value=4}, Options{text='Вопрос №2  )2(', value=5}, Options{text='Вопрос №3  )2(', value=6}]}
+1. Имеет 1 проверку Number question: Item{number=1, options=[Options{text='Имеет 1 проверку', value=1}, Options{text='Имеет 2 проверки', value=2}, Options{text='Повторных проверок не имеет', value=3}]}
+2. Вопрос №2  )2( Number question: Item{number=2, options=[Options{text='Вопрос №1 )2(', value=4}, Options{text='Вопрос №2  )2(', value=5}, Options{text='Вопрос №3  )2(', value=6}]}
+1. Имеет 2 проверки Number question: Item{number=1, options=[Options{text='Имеет 1 проверку', value=1}, Options{text='Имеет 2 проверки', value=2}, Options{text='Повторных проверок не имеет', value=3}]}
+2. Вопрос №2  )2( Number question: Item{number=2, options=[Options{text='Вопрос №1 )2(', value=4}, Options{text='Вопрос №2  )2(', value=5}, Options{text='Вопрос №3  )2(', value=6}]}
+1. Имеет 2 проверки Number question: Item{number=1, options=[Options{text='Имеет 1 проверку', value=1}, Options{text='Имеет 2 проверки', value=2}, Options{text='Повторных проверок не имеет', value=3}]}
+2. Вопрос №2  )2( Number question: Item{number=2, options=[Options{text='Вопрос №1 )2(', value=4}, Options{text='Вопрос №2  )2(', value=5}, Options{text='Вопрос №3  )2(', value=6}]}
+3. Имеет 1 проверку Number question: Item{number=1, options=[Options{text='Имеет 1 проверку', value=1}, Options{text='Имеет 2 проверки', value=2}, Options{text='Повторных проверок не имеет', value=3}]}
+1. Имеет 1 проверку Number question: Item{number=1, options=[Options{text='Имеет 1 проверку', value=1}, Options{text='Имеет 2 проверки', value=2}, Options{text='Повторных проверок не имеет', value=3}]}
+1. Имеет 1 проверку Number question: Item{number=1, options=[Options{text='Имеет 1 проверку', value=1}, Options{text='Имеет 2 проверки', value=2}, Options{text='Повторных проверок не имеет', value=3}]}
+2. Вопрос №2  )2( Number question: Item{number=2, options=[Options{text='Вопрос №1 )2(', value=4}, Options{text='Вопрос №2  )2(', value=5}, Options{text='Вопрос №3  )2(', value=6}]}
+1. Имеет 2 проверки Number question: Item{number=1, options=[Options{text='Имеет 1 проверку', value=1}, Options{text='Имеет 2 проверки', value=2}, Options{text='Повторных проверок не имеет', value=3}]}
+2. Вопрос №2  )2( Number question: Item{number=2, options=[Options{text='Вопрос №1 )2(', value=4}, Options{text='Вопрос №2  )2(', value=5}, Options{text='Вопрос №3  )2(', value=6}]}
+1. Повторных проверок не имеет Number question: Item{number=1, options=[Options{text='Имеет 1 проверку', value=1}, Options{text='Имеет 2 проверки', value=2}, Options{text='Повторных проверок не имеет', value=3}]}
+2. Вопрос №2  )2( Number question: Item{number=2, options=[Options{text='Вопрос №1 )2(', value=4}, Options{text='Вопрос №2  )2(', value=5}, Options{text='Вопрос №3  )2(', value=6}]}
+1. Имеет 1 проверку Number question: Item{number=1, options=[Options{text='Имеет 1 проверку', value=1}, Options{text='Имеет 2 проверки', value=2}, Options{text='Повторных проверок не имеет', value=3}]}
+1. Имеет 2 проверки Number question: Item{number=1, options=[Options{text='Имеет 1 проверку', value=1}, Options{text='Имеет 2 проверки', value=2}, Options{text='Повторных проверок не имеет', value=3}]}
+2. Вопрос №3  )2( Number question: Item{number=2, options=[Options{text='Вопрос №1 )2(', value=4}, Options{text='Вопрос №2  )2(', value=5}, Options{text='Вопрос №3  )2(', value=6}]}
+1. Имеет 1 проверку Number question: Item{number=1, options=[Options{text='Имеет 1 проверку', value=1}, Options{text='Имеет 2 проверки', value=2}, Options{text='Повторных проверок не имеет', value=3}]}
+2. Вопрос №1 )2( Number question: Item{number=2, options=[Options{text='Вопрос №1 )2(', value=4}, Options{text='Вопрос №2  )2(', value=5}, Options{text='Вопрос №3  )2(', value=6}]}
+1. Имеет 1 проверку Number question: Item{number=1, options=[Options{text='Имеет 1 проверку', value=1}, Options{text='Имеет 2 проверки', value=2}, Options{text='Повторных проверок не имеет', value=3}]}
+2. Вопрос №2  )2( Number question: Item{number=2, options=[Options{text='Вопрос №1 )2(', value=4}, Options{text='Вопрос №2  )2(', value=5}, Options{text='Вопрос №3  )2(', value=6}]}
