@@ -6,7 +6,7 @@
 
     <style>
         body {
-
+            background-image: linear-gradient(-45deg, #0e4e91, #a93f69);
             background-repeat: no-repeat;
             background-position: center center;
             background-attachment: fixed;
@@ -16,23 +16,70 @@
             background-size: cover;
         }
 
-        p {
-            color: white;
-            font-size : 20px;
-            font-weight : bold;
+        .inner {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            font-size: 20px;
+            margin: auto;
         }
+
+        .wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            padding: 180px;
+        }
+        
+        p {
+            color: #fff;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        button {
+            background-color: black;
+            border: none;
+            border-radius: 10px;
+            color: white;
+            padding: 15px 40px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 18px;
+            margin-bottom: 100px;
+            margin-top: 60px;
+        }
+
+        button:hover {
+            background-color: white;
+            color: black;
+            transition-duration: 0.8s;
+        }
+
+        h1 {
+            color: white;
+        }
+
     </style>
 </head>
 
-<body th:style="'background-image: url(' + @{/images/img2.jpg} + ');'">
+<body>
 
-<p>Начните проверку уровня Вашей системы управления инциндентами ИБ</p>
+<div class="wrapper">
 
-<br>
+    <div class="inner">
+        <h1>Проверка уровня системы управления инциндентами информационной безопасности</h1>
+        <form  class="start" th:action="@{/poll/test}">
+            <button type="submit">Начать</button>
+        </form>
+        <p>
+            С помощью этого опроса Вы можете оценить уровень соответствия Вашей системы управления
+            инцидентами ИБ ГОСТР57580.1—2017. Опрос разработан в соответствии с нормами для определения безопасности в финансовых
+            (банковксих) организациях.
+        </p>
+    </div>
 
-<form th:action="@{/poll/questions/1}">
-    <button type="submit">Начать</button>
-</form>
-
+</div>
 </body>
 </html>

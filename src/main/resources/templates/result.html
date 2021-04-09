@@ -6,6 +6,7 @@
 
     <style>
         body {
+            background-image: linear-gradient(-45deg, #0e4e91, #a93f69);
             background-repeat: no-repeat;
             background-position: center center;
             background-attachment: fixed;
@@ -32,7 +33,7 @@
         }
 
         div.result {
-            pwidth: 1000px;
+            width: 1000px;
             position: absolute;
             left: 50%;
             margin-left: -350px;
@@ -41,8 +42,12 @@
         p.requirement {
             font-size : 30px;
             font-weight : bold;
+            color: white;
         }
 
+        p.necessary {
+            color: white;
+        }
 
         p.result {
             font-size : 50px;
@@ -51,7 +56,7 @@
         }
     </style>
 </head>
-<body th:style="'background-image: url(' + @{/images/img2.jpg} + ');'">
+<body>
 
 <div class="result">
     <p class="result" th:text="'Ваш результат: ' + ${result} + '/9 ' + 'баллов'"/>

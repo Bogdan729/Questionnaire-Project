@@ -65,4 +65,10 @@ public class SpringController {
         model.addAttribute("item", itemDao.show(1));
         return "present";
     }
+
+    @GetMapping("/test")
+    public String test(Model model) {
+        model.addAttribute("item", itemDao.show(1));
+        return "test";
+    }
 }

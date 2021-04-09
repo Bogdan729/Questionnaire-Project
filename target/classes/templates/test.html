@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Test</title>
+
+    <style>
+        body {
+            background-image: linear-gradient(-45deg, #0e4e91, #a93f69);
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-attachment: fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+        }
+
+        div.wrapper {
+            font-family: Arial, sans-serif;
+            color: #000000;
+            text-align: center;
+            align-items: center;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            top: 50%;
+        }
+
+        div.inner {
+            border: 5px solid black;
+            height: 600px;
+            width: 600px;
+            border-top-right-radius: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            top: 100px;
+            background: linear-gradient(45deg, #3e789f, #258dc1, #149ed4);
+        }
+
+        .question {
+            padding: 3px 9px;
+            border: 2px solid #030202;
+            position: relative;
+            border-radius: 8px;
+            background-color: black;
+        }
+
+        .text {
+            color: white;
+        }
+
+        button {
+            background-color: black;
+            border: none;
+            border-radius: 10px;
+            color: white;
+            padding: 4px 19px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 18px;
+            margin-top: 180px;
+            position: center;
+        }
+
+        button:hover {
+            background-color: white;
+            color: black;
+            transition-duration: 0.8s;
+        }
+
+        form {
+            position: relative;
+            width: 500px;
+            height: 100px;
+            border: 2px solid #030202;
+            margin-bottom: 150px;
+            background-color: black;
+            border-radius: 10px;
+        }
+
+        .form_radio {
+            position: relative;
+            color: white;
+
+            padding: 2px;
+        }
+
+        form>div {
+            margin-top: 7px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="wrapper">
+    <div class="inner" th:object="${item}">
+        <div class="question">
+            <p class="text">Сколько уровней проверки имеет Ваша система?</p>
+        </div>
+        <form th:method="PATCH" th:action="@{/poll}">
+            <div class="form_radio" th:each="option : ${item.getOptions()}">
+                <label><input type="radio" name="question" th:field="*{answer}" th:value="${option.getText()}"
+                              th:utext="${option.getText()}" required/></label>
+            </div>
+            <input type="hidden" name="number" th:field="*{number}" th:value="*{number}"/>
+
+            <input type="hidden" name="options" th:field="*{options[0].text}" th:value="*{options[0].text}"/>
+            <input type="hidden" name="options" th:field="*{options[1].text}" th:value="*{options[1].text}"/>
+            <input type="hidden" name="options" th:field="*{options[2].text}" th:value="*{options[2].text}"/>
+
+            <input type="hidden" name="options" th:field="*{options[0].value}" th:value="*{options[0].getValue()}"/>
+            <input type="hidden" name="options" th:field="*{options[1].value}" th:value="*{options[1].getValue()}"/>
+            <input type="hidden" name="options" th:field="*{options[2].value}" th:value="*{options[2].getValue()}"/>
+            <button type="submit">Отправить ответ</button>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>
