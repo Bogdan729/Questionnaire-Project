@@ -95,7 +95,6 @@
     </style>
 </head>
 <body>
-
 <div class="wrapper">
     <div class="inner" th:object="${item}">
         <div class="question">
@@ -107,11 +106,9 @@
                               th:utext="${option.getText()}" required/></label>
             </div>
             <input type="hidden" name="number" th:field="*{number}" th:value="*{number}"/>
-
             <input type="hidden" name="options" th:field="*{options[0].text}" th:value="*{options[0].text}"/>
             <input type="hidden" name="options" th:field="*{options[1].text}" th:value="*{options[1].text}"/>
             <input type="hidden" name="options" th:field="*{options[2].text}" th:value="*{options[2].text}"/>
-
             <input type="hidden" name="options" th:field="*{options[0].value}" th:value="*{options[0].getValue()}"/>
             <input type="hidden" name="options" th:field="*{options[1].value}" th:value="*{options[1].getValue()}"/>
             <input type="hidden" name="options" th:field="*{options[2].value}" th:value="*{options[2].getValue()}"/>
@@ -119,6 +116,5 @@
         </form>
     </div>
 </div>
-
 </body>
 </html>

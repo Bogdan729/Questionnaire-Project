@@ -56,6 +56,7 @@ public class SpringController {
     public String result(Model model) {
 
         model.addAttribute("result", itemDao.getResult());
+        itemDao.setResult(0);
 //        model.addAttribute("answers", itemDao.getResultAnswers());
         return "result";
     }

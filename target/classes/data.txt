@@ -1,1 +1,0 @@
-1. Имеет 2 проверки и 1 дополнительную Number question: Item{number=1, options=[Options{text='Имеет 1 проверку', value=1}, Options{text='Имеет 2 проверки и 1 дополнительную', value=2}, Options{text='Имеет 3 проверки', value=3}]}

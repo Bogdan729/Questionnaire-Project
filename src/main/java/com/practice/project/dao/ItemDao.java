@@ -5,6 +5,7 @@ import com.practice.project.model.Item;
 import com.practice.project.model.Options;
 import org.springframework.stereotype.Component;
 
+import javax.swing.text.html.Option;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -19,10 +20,9 @@ public class ItemDao {
     private static int result = 0;
     private List<String> answers = new ArrayList<>();
 
-    public ItemDao() {
-    }
+    public ItemDao() {}
 
-    public void saveIntoFile(Item item) {
+    public void saveIntoFile(Item item) { // сохранение информации об ответе
         try {
             scoring(item); // подсчет кол-ва баллов
 
@@ -41,11 +41,11 @@ public class ItemDao {
         }
     }
 
-    public Item show(int number) {
+    public Item show(int number) { // представляет элемент по id
         return Arrays.stream(items).filter(i -> i.getNumber() == number).findAny().orElse(null);
     }
 
-    public void scoring(Item item) {
+    public void scoring(Item item) { // счетчик кол-ва баллов
         for (Options option : item.getOptions()) {
             if (item.getAnswer().equals(option.getText()))
                 result += option.getValue();
@@ -64,15 +64,17 @@ public class ItemDao {
         return result;
     }
 
+    public static void setResult(int result) {
+        ItemDao.result = result;
+    }
+
     public List<String> getAnswers() {
         return answers;
     }
 
-    public StringBuilder getResultAnswers() {
+    public StringBuilder getRecommendations(Item item) { // метод сохранения рекомендаций
         StringBuilder resultAnswers = new StringBuilder();
-        for (String a : answers) {
-            resultAnswers.append(a + "\n");
-        }
+
         return resultAnswers;
     }
 }
