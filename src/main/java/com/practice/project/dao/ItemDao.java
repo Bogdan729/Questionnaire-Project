@@ -5,7 +5,6 @@ import com.practice.project.model.Item;
 import com.practice.project.model.Options;
 import org.springframework.stereotype.Component;
 
-import javax.swing.text.html.Option;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -16,25 +15,22 @@ import java.util.List;
 @Component
 public class ItemDao {
     private final Item[] items = Parser.getItem();
-    private static int count = 0;
-    private static int result = 0;
-    private List<String> answers = new ArrayList<>();
+    private static int count;
+    private static int result;
+    private List<Item> itemList = new ArrayList<>();
+    private StringBuilder recommendations = new StringBuilder();
+    private StringBuilder requirements = new StringBuilder();
 
     public ItemDao() {}
 
     public void saveIntoFile(Item item) { // сохранение информации об ответе
-        try {
-            scoring(item); // подсчет кол-ва баллов
+        itemList.add(item);
 
+        try {
             File file = new File("src\\main\\resources\\data.txt");
             FileWriter fw = new FileWriter(file, true);
-
-            answers.add(item.getAnswer());
-
             count++;
-
             fw.write( count + ". " + item.getAnswer() + " Number question: " + item + "\n");
-
             fw.close();
         } catch (IOException e) {
             e.printStackTrace();
@@ -43,13 +39,6 @@ public class ItemDao {
 
     public Item show(int number) { // представляет элемент по id
         return Arrays.stream(items).filter(i -> i.getNumber() == number).findAny().orElse(null);
-    }
-
-    public void scoring(Item item) { // счетчик кол-ва баллов
-        for (Options option : item.getOptions()) {
-            if (item.getAnswer().equals(option.getText()))
-                result += option.getValue();
-        }
     }
 
     public int getItemsLength() {
@@ -68,13 +57,36 @@ public class ItemDao {
         ItemDao.result = result;
     }
 
-    public List<String> getAnswers() {
-        return answers;
+    public StringBuilder getRecommendations() {
+        return recommendations;
     }
 
-    public StringBuilder getRecommendations(Item item) { // метод сохранения рекомендаций
-        StringBuilder resultAnswers = new StringBuilder();
+    public StringBuilder getRequirements() {
+        return requirements;
+    }
 
-        return resultAnswers;
+    public void analyze() { // метод сохранения рекомендаций
+        for (Item item : itemList) {
+            if (item.getAnswer().equals("requirement")) {
+                for (Options option : item.getOptions()) {
+                    if (option.getStatus().equals("recommended"))
+                        recommendations.append(option.getMessage()).append("\n");
+                }
+            }
+
+            if (item.getAnswer().equals("inconsistency")) {
+                for (Options option : item.getOptions()) {
+                    if (option.getStatus().equals("recommended"))
+                        recommendations.append(option.getMessage()).append("\n");
+                    else if (option.getStatus().equals("requirement"))
+                        requirements.append(option.getMessage()).append("\n");
+                }
+            }
+
+            for (Options option : item.getOptions()) {
+                if (item.getAnswer().equals(option.getStatus()))
+                    result += option.getValue();
+            }
+        }
     }
 }

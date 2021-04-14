@@ -99,10 +99,12 @@
         </div>
         <form th:method="POST" th:action="@{/poll}">
             <div class="form_radio" th:each="option : ${item.getOptions()}" >
-                <label><input type="radio" name="question"
+                <label>
+                    <input type="radio" name="question"
                               th:field="*{answer}"
-                              th:value="${option.getText()}"
-                              th:text="${option.getText()}" required/>
+                              th:value="${option.getStatus()}"
+                              th:text="${option.getText()}" required
+                    />
                 </label>
             </div>
             <p th:if="${item.getOptions().size() == 3}">

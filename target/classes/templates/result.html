@@ -16,8 +16,14 @@
             background-size: cover;
         }
 
-        textarea[name=details] {
+        textarea[name=requirements] {
             resize: none;
+            color: red;
+        }
+
+        textarea[name=recommendations] {
+            resize: none;
+            color: orange;
         }
 
         div.recommended {
@@ -28,7 +34,7 @@
 
         div.necessary {
             position: absolute;
-            right: 150px; /* Расстояние от левого края */
+            right: 40px; /* Расстояние от левого края */
             top: 200px;
         }
 
@@ -42,11 +48,15 @@
         p.requirement {
             font-size : 30px;
             font-weight : bold;
-            color: white;
+            color: #fc4b4b;
+            text-align: center;
         }
 
-        p.necessary {
-            color: white;
+        p.recommendations {
+            font-size : 30px;
+            font-weight : bold;
+            color: orange;
+            text-align: center;
         }
 
         p.result {
@@ -54,26 +64,46 @@
             font-weight : bold;
             color: white;
         }
+
+        button {
+            background-color: black;
+            border: none;
+            border-radius: 10px;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 18px;
+            position: relative;
+            margin-top: 640px;
+            margin-left: 665px;
+        }
+
+        button:hover {
+            background-color: white;
+            color: black;
+            transition-duration: 0.8s;
+        }
     </style>
 </head>
 <body>
 
 <div class="result">
     <p class="result" th:text="'Ваш результат: ' + ${result} + '/24 ' + 'баллов'"/>
-<!--    <p class="result">Результат</p>-->
 </div>
 
 <div class="recommended">
-    <p class="requirement">Рекомендательные требования</p>
-    <textarea name="details" cols="90" rows="5"></textarea>
+    <p class="recommendations">Рекомендательные требования</p>
+    <textarea name="recommendations" cols="95" rows="16" th:text="${recommendations}"></textarea>
 </div>
 
 <div class="necessary">
     <p class="requirement">Настоятельно необходимые требования</p>
-    <textarea name="details" cols="90" rows="5"></textarea>
+    <textarea name="requirements" cols="95" rows="16" th:text="${requirements}"></textarea>
 </div>
-
-</textarea>
-
+<form  class="end" th:action="@{/poll/}">
+    <button type="submit">Завершить опрос</button>
+</form>
 </body>
 </html>

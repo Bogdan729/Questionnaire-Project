@@ -11,6 +11,6 @@ public class Main {
         Gson gson = new Gson();
         Item[] questions = gson.fromJson(new FileReader("src/main/resources/questions.json"), Item[].class);
 
-        System.out.println(questions[0].getOptions().get(1).getStatus());
+        System.out.println(questions[0].getOptions().get(1).getMessage());
     }
 }

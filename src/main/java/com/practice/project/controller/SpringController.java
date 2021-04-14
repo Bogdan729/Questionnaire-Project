@@ -18,7 +18,7 @@ public class SpringController {
     }
 
     @GetMapping()
-    public String test() {
+    public String generalPage() {
         return "general";
     }
 
@@ -26,11 +26,6 @@ public class SpringController {
     public String start(@PathVariable int number, Model model) {
         model.addAttribute("item", itemDao.show(number));
         return "questions";
-    }
-
-    @GetMapping("/questions")
-    public String start() {
-        return "general";
     }
 
     @PostMapping()
@@ -46,25 +41,13 @@ public class SpringController {
         return "redirect:/poll/questions/" + number;
     }
 
-    @GetMapping("/{number}")
-    public String showQuestion(@PathVariable int number, Model model) {
-        model.addAttribute("item", itemDao.show(1));
-        return "present";
-    }
-
     @GetMapping("/result")
     public String result(Model model) {
-
+        itemDao.analyze();
         model.addAttribute("result", itemDao.getResult());
-        itemDao.setResult(0);
-//        model.addAttribute("answers", itemDao.getResultAnswers());
+        model.addAttribute("recommendations", itemDao.getRecommendations());
+        model.addAttribute("requirements", itemDao.getRequirements());
         return "result";
-    }
-
-    @GetMapping("show")
-    public String showElements(Model model) {
-        model.addAttribute("item", itemDao.show(1));
-        return "present";
     }
 
     @GetMapping("/test")
