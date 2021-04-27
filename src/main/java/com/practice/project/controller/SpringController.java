@@ -52,7 +52,7 @@ public class SpringController {
 
     @GetMapping("/test")
     public String test(Model model) {
-        model.addAttribute("item", itemDao.show(1));
+        model.addAttribute("item", itemDao.show(10));
         return "test";
     }
 }

@@ -6,50 +6,20 @@
 
     <style>
         body {
+            width: 90%;
+            left: 4%;
+            border: 2px solid black;
+            position: relative;
+            height: 930px;
             background-image: linear-gradient(-45deg, #0e4e91, #a93f69);
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-attachment: fixed;
-            -webkit-background-size: cover;
-            -moz-background-size: cover;
-            -o-background-size: cover;
-        }
-
-        div.wrapper {
             font-family: Arial, sans-serif;
             color: #000000;
-            text-align: center;
-            align-items: center;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            top: 50%;
         }
 
-        div.inner {
-            border: 5px solid black;
-            height: 600px;
-            width: 600px;
-            border-top-right-radius: 20px;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
+        form {
+            margin-top: 100px;
             position: relative;
-            top: 100px;
-            background: linear-gradient(45deg, #3e789f, #258dc1, #149ed4);
-        }
-
-        .question {
-            padding: 3px 9px;
-            border: 2px solid #030202;
-            position: relative;
-            border-radius: 8px;
-            background-color: black;
-        }
-
-        .text {
-            color: white;
+            border: 2px solid forestgreen;
         }
 
         button {
@@ -61,9 +31,11 @@
             text-align: center;
             text-decoration: none;
             display: inline-block;
-            font-size: 18px;
-            margin-top: 180px;
-            position: center;
+            position: relative;
+            left: 830px;
+            margin-top: 50px;
+            margin-bottom: 50px;
+            font-size: 20px;
         }
 
         button:hover {
@@ -72,49 +44,80 @@
             transition-duration: 0.8s;
         }
 
-        form {
+        .question {
             position: relative;
-            width: 500px;
-            height: 100px;
+            margin-top: 20px;
+            left: 820px;
+            width: 650px;
+            padding: 10px;
+            border-radius: 8px;
             border: 2px solid #030202;
-            margin-bottom: 150px;
+            background-color: black;
+            text-align: center;
+            font-size: 20px;
+        }
+
+        .variant {
+            position: relative;
+            margin-top: 100px;
+            margin-bottom: 50px;
+            padding: 10px;
+            left: 770px;
+            text-align: center;
             background-color: black;
             border-radius: 10px;
-        }
-
-        .form_radio {
-            position: relative;
+            border: 2px solid #030202;
             color: white;
-
-            padding: 2px;
+            font-size: 20px;
         }
 
-        form>div {
-            margin-top: 7px;
+        .text {
+            color: white;
         }
     </style>
 </head>
-<body>
-<div class="wrapper">
-    <div class="inner" th:object="${item}">
-        <div class="question">
-            <p class="text">Сколько уровней проверки имеет Ваша система?</p>
-        </div>
-        <form th:method="PATCH" th:action="@{/poll}">
-            <div class="form_radio" th:each="option : ${item.getOptions()}">
-                <label><input type="radio" name="question" th:field="*{answer}" th:value="${option.getText()}"
-                              th:utext="${option.getText()}" required/></label>
-            </div>
-            <input type="hidden" name="number" th:field="*{number}" th:value="*{number}"/>
-            <input type="hidden" name="options" th:field="*{options[0].text}" th:value="*{options[0].text}"/>
-            <input type="hidden" name="options" th:field="*{options[1].text}" th:value="*{options[1].text}"/>
-            <input type="hidden" name="options" th:field="*{options[2].text}" th:value="*{options[2].text}"/>
-            <input type="hidden" name="options" th:field="*{options[0].value}" th:value="*{options[0].getValue()}"/>
-            <input type="hidden" name="options" th:field="*{options[1].value}" th:value="*{options[1].getValue()}"/>
-            <input type="hidden" name="options" th:field="*{options[2].value}" th:value="*{options[2].getValue()}"/>
-            <button type="submit">Отправить ответ</button>
-        </form>
-    </div>
+<div class="question">
+    <p class="text" th:utext="${item.getQuestion()}"></p>
 </div>
-</body>
+
+<form th:method="POST" th:action="@{poll/}" th:object="${item}">
+    <div class="variant">
+        <label th:each="option : ${item.getOptions()}">
+            <input type="radio" name="question"
+                   th:field="*{answer}"
+                   th:value="${option.getStatus()}"
+                   th:text="${option.getText()}" required
+            /><br/><br/>
+        </label>
+    </div>
+    <p th:if="${item.getOptions().size() == 3}">
+        <input type="hidden" name="number" th:field="*{number}" th:value="*{number}"/>
+        <input type="hidden" name="question" th:field="*{question}" th:value="*{question}"/>
+        <input type="hidden" name="options" th:field="*{options[0].text}" th:value="*{options[0].text}"/>
+        <input type="hidden" name="options" th:field="*{options[1].text}" th:value="*{options[1].text}"/>
+        <input type="hidden" name="options" th:field="*{options[2].text}" th:value="*{options[2].text}"/>
+        <input type="hidden" name="options" th:field="*{options[0].value}" th:value="*{options[0].getValue()}"/>
+        <input type="hidden" name="options" th:field="*{options[1].value}" th:value="*{options[1].getValue()}"/>
+        <input type="hidden" name="options" th:field="*{options[2].value}" th:value="*{options[2].getValue()}"/>
+        <input type="hidden" name="options" th:field="*{options[0].status}" th:value="*{options[0].getStatus()}"/>
+        <input type="hidden" name="options" th:field="*{options[1].status}" th:value="*{options[1].getStatus()}"/>
+        <input type="hidden" name="options" th:field="*{options[2].status}" th:value="*{options[2].getStatus()}"/>
+        <input type="hidden" name="options" th:field="*{options[0].message}" th:value="*{options[0].getMessage()}"/>
+        <input type="hidden" name="options" th:field="*{options[1].message}" th:value="*{options[0].getMessage()}"/>
+        <input type="hidden" name="options" th:field="*{options[2].message}" th:value="*{options[0].getMessage()}"/>
+    </p>
+    <p th:if="${item.getOptions().size() == 2}">
+        <input type="hidden" name="number" th:field="*{number}" th:value="*{number}"/>
+        <input type="hidden" name="question" th:field="*{question}" th:value="*{question}"/>
+        <input type="hidden" name="options" th:field="*{options[0].text}" th:value="*{options[0].text}"/>
+        <input type="hidden" name="options" th:field="*{options[1].text}" th:value="*{options[1].text}"/>
+        <input type="hidden" name="options" th:field="*{options[0].value}" th:value="*{options[0].getValue()}"/>
+        <input type="hidden" name="options" th:field="*{options[1].value}" th:value="*{options[1].getValue()}"/>
+        <input type="hidden" name="options" th:field="*{options[0].status}" th:value="*{options[0].getStatus()}"/>
+        <input type="hidden" name="options" th:field="*{options[1].status}" th:value="*{options[1].getStatus()}"/>
+        <input type="hidden" name="options" th:field="*{options[0].message}" th:value="*{options[0].getMessage()}"/>
+        <input type="hidden" name="options" th:field="*{options[1].message}" th:value="*{options[0].getMessage()}"/>
+    </p>
+    <button type="submit">Отправить ответ</button>
+</form>
 </html>
